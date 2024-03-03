@@ -31,14 +31,14 @@ public class MoneyTransferTest {
     void shouldTransferFormFirstToSecond() {
         var firstCardBalance = dashboardPage.getCardBalance(firstCardInfo);
         var secondCardBalance = dashboardPage.getCardBalance(secondCardInfo);
-        var amount = generateValidAmount(firstCardBalance);
+        var amount = generateInvalidAmount(firstCardBalance);
         var expectedBalanceFirstCard = firstCardBalance - amount;
         var expectedBalanceSecondCard = secondCardBalance + amount;
         var transferPage = dashboardPage.selectCardToTransfer(secondCardInfo);
         dashboardPage = transferPage.makeValidTransfer(String.valueOf(amount),firstCardInfo);
         var actualBalanceFirstCard = dashboardPage.getCardBalance(firstCardInfo);
-        var actualBalanceSecondcard = dashboardPage.getCardBalance(secondCardInfo);
+        var actualBalanceSecondCard = dashboardPage.getCardBalance(secondCardInfo);
         Assertions.assertEquals(expectedBalanceFirstCard,actualBalanceFirstCard);
-        Assertions.assertEquals(expectedBalanceSecondCard,actualBalanceSecondcard);
+        Assertions.assertEquals(expectedBalanceSecondCard,actualBalanceSecondCard);
     }
 }
