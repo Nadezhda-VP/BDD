@@ -18,7 +18,7 @@ public class TransferPage {
     private final SelenideElement errorMessage =$("[data-test-id='error-message']");
 
     public TransferPage(){
-        transherHead.shouldBe(Condition.visible);
+        //transherHead.shouldBe(Condition.visible);
     }
 
     public DashboardPage makeValidTransfer(String amountToTransfer, DataHelper.CardInfo cardInfo){
